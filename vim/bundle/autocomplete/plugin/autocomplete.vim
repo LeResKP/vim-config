@@ -25,8 +25,10 @@ function! IntelligentTab()
         return snipMate#TriggerSnippet()
     endif
 
-    if UseOmniCompletion(l:textBeforeCursor)
-        return "\<C-x>\<C-o>"
+    if (exists('b:omni_func'))
+        if funcref#Call(b:omni_func, [l:textBeforeCursor])
+            return "\<C-x>\<C-o>"
+        endif
     endif
 
     if l:textBeforeCursor =~ '^\s*$'
@@ -40,3 +42,4 @@ endfunction
 au BufAdd,BufEnter * :runtime! config/default.vim <CR>
 " Load special config file for css files
 au BufAdd,BufEnter *.\(css\|scss\) :runtime! config/css.vim <CR>
+

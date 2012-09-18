@@ -1,5 +1,8 @@
-echo 'load css config'
-function!  UseOmniCompletion(textBeforeCursor)
+if exists("b:omni_func")
+    finish
+endif
+
+function! UseOmniCompletion(textBeforeCursor)
     if a:textBeforeCursor =~ '^  '
         " We want to find a property
         if a:textBeforeCursor =~ '#[^\s]*$'
@@ -10,3 +13,5 @@ function!  UseOmniCompletion(textBeforeCursor)
     endif
     return 0
 endfunction
+
+let b:omni_func=funcref#Function('UseOmniCompletion')
