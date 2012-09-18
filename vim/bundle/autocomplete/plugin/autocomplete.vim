@@ -1,27 +1,16 @@
-" Tab mapping
+let g:snips_trigger_key='<c-space>' " Disable <Tab> in snipMate
 inoremap <Tab> <C-R>=IntelligentTab()<CR>
 map  <Tab> I<tab>
 
 
-" We need to update ~/.vim/bundle/snipMate/plugin/snipMate.vim to make
-" GetSnippet callable. Add the following lines
-" fun! GetSnippet(word, scope)
-" 	return s:GetSnippet(a:word, a:scope)
-" endf
-"
 function! IsSnippet()
 	let word = matchstr(getline('.'), '\S\+\%'.col('.').'c')
-	for scope in [bufnr('%')] + split(&ft, '\.') + ['_']
-		let [trigger, snippet] = GetSnippet(word, scope)
-		" If word is a trigger for a snippet, delete the trigger & expand
-		" the snippet.
-		if snippet != ''
-            return 1
-		endif
-	endfor
+	let lis = snipMate#GetSnippetsForWordBelowCursor(word, '',  1)
+    if len(lis)
+        return 1
+    endif
     return 0
 endfunction
-
 
 function! IntelligentTab()
     " Get the text before the cursor
@@ -33,7 +22,7 @@ function! IntelligentTab()
     endif
 
     if IsSnippet()
-        return TriggerSnippet()
+        return snipMate#TriggerSnippet()
     endif
 
     if UseOmniCompletion(l:textBeforeCursor)
