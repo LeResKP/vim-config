@@ -39,6 +39,11 @@ set completeopt=menuone,longest,preview
 " Include just word in current and opened tabs for completion
 set cpt=.,w,b
 
+" We need this because of smartcase. When we make a search with '*' or '#' we
+" want to active case sensitive.
+nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
+nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
+
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
