@@ -156,3 +156,5 @@ function! GetLineToRunTest()
     echo 'pyssh '.expand('%:p').' --my '. ' '.GetCurrentPythonString()
 endfunction
 
+hi TrailingWhitespace guibg=#222222
+call matchadd('TrailingWhitespace', '\s\+$', -1)
