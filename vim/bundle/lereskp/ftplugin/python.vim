@@ -1,6 +1,6 @@
-hi OverLength guibg=#3b3a3a
-hi ColorColumn ctermbg=lightgrey guibg=#3b3a3a
-match OverLength /\%81v.*/
+hi OverLength guibg=#303030
+hi ColorColumn ctermbg=lightgrey guibg=#303030
+call matchadd('OverLength', '\%81v.*', -1)
 setlocal tabstop=4
 setlocal softtabstop=4
 setlocal shiftwidth=4
