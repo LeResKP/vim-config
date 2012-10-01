@@ -1,4 +1,3 @@
-colorscheme desert
 " Use the mouse in all modes.
 set mouse=a
 set gfn=Bitstream\ Vera\ Sans\ Mono\ 9
