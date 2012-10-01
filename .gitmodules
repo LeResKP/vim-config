@@ -25,3 +25,6 @@
 [submodule "vim/bundle/vsearch"]
 	path = vim/bundle/vsearch
 	url = https://github.com/BenBergman/vsearch.vim.git
+[submodule "vim/bundle/pyflakes-vim"]
+	path = vim/bundle/pyflakes-vim
+	url = https://github.com/kevinw/pyflakes-vim.git
