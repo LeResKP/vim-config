@@ -6,9 +6,9 @@ function! GetCurrentPythonStringForStatusBar()
   " TODO: support: if __name__ == '__main__':
 
   " Define the style to display the class name and function name
-  let classHi = '%#statusbar_class#'
-  let functionHi = '%#statusbar_function#'
-  let punctuationHi = '%#perso1#'
+  let classHi = '%#statusbar_red#'
+  let functionHi = '%#statusbar_blue#'
+  let punctuationHi = '%#statusbar#'
 
   " Search the first class method definition before the current position
   let classFunctionLineNumber = search('^    def', 'bncW')

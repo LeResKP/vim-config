@@ -3,7 +3,7 @@ function! GetMainStatusBar()
   if exists("b:status_bar_func")
     let extra = funcref#Call(b:status_bar_func)
   endif
-  return '%#perso1#%F   '.extra.' %#perso1#%=buffer %0n  %4l/%-4L %3p%% %3c'
+  return '%#statusbar#%F   '.extra.' %#statusbar#%=buffer %0n  %4l/%-4L %3p%% %3c'
 endfunction
 
 function! GetSecondaryStatusBar()
