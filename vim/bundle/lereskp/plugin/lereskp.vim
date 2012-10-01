@@ -52,6 +52,8 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
+" Custom syntax
+runtime! syntax/syntax.vim
 
 "
 " Personnal mapping
@@ -156,5 +158,3 @@ function! GetLineToRunTest()
     echo 'pyssh '.expand('%:p').' --my '. ' '.GetCurrentPythonString()
 endfunction
 
-hi TrailingWhitespace guibg=#222222
-call matchadd('TrailingWhitespace', '\s\+$', -1)
