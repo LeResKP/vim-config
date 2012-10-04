@@ -54,6 +54,7 @@ autocmd BufReadPost *
 
 " Custom syntax
 runtime! syntax/syntax.vim
+au BufEnter,BufCreate * call matchadd('TrailingWhitespace', '\s\+$', -1)
 
 "
 " Personnal mapping
