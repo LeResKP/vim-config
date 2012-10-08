@@ -54,7 +54,7 @@ autocmd BufReadPost *
 
 " Custom syntax
 runtime! syntax/syntax.vim
-au BufEnter,BufCreate * call matchadd('TrailingWhitespace', '\s\+$', -1)
+au BufEnter,BufCreate,WinEnter * call matchadd('TrailingWhitespace', '\s\+$', -1)
 
 "
 " Personnal mapping
@@ -83,7 +83,7 @@ nmap ,t :call GetLineToRunTest()<CR>
 " Prepare to open file in same directory of the current one
 nmap ,c :tabe <C-R>=expand('%:h').'/'<CR><C-d>
 " Mapping pour désactiver le surlignage des résultats d'une recherche
-nnoremap <silent> <C-N> :noh<CR>    
+nnoremap <silent> <C-N> :noh<CR>
 
 "
 "tab is 2 spaces in html pages
