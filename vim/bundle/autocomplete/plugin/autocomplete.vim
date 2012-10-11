@@ -1,6 +1,7 @@
 let g:snips_trigger_key='<c-space>' " Disable <Tab> in snipMate
 inoremap <Tab> <C-R>=IntelligentTab()<CR>
 map  <Tab> I<tab>
+imap <expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 
 function! IsSnippet()
