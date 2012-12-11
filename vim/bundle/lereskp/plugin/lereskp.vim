@@ -159,3 +159,7 @@ function! GetLineToRunTest()
     echo 'pyssh '.expand('%:p').' --my '. ' '.GetCurrentPythonString()
 endfunction
 
+colorscheme desertTerm
+if has("gui_running")
+    colorscheme desert
+endif
