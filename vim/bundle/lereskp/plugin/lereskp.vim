@@ -97,7 +97,7 @@ nnoremap <silent> <C-N> :noh<CR>
 
 "
 "tab is 2 spaces in html pages
-au BufEnter *.\(html\|pt\|zpt\|cpt\|mako\|css\|tmpl\|scss\) setl softtabstop=2 shiftwidth=2
+au BufEnter *.\(html\|pt\|zpt\|cpt\|mak\|mako\|css\|tmpl\|scss\) setl softtabstop=2 shiftwidth=2
 
 
 function! MoveTab(val)
