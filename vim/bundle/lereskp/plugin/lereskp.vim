@@ -44,17 +44,24 @@ set cpt=.,w,b
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
+colorscheme desertTerm
+if has("gui_running")
+    colorscheme desert
+endif
 
 " Custom syntax
 runtime! syntax/syntax.vim
-au BufEnter,BufCreate,WinEnter * call matchadd('TrailingWhitespace', '\s\+$', -1)
+au BufEnter,BufCreate,BufRead,WinEnter * call matchadd('TrailingWhitespace', '\s\+$', -1)
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it in commit log or when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+function! PositionCursorFromViminfo()
+  if !(bufname("%") =~ '\(COMMIT_EDITMSG\)') && line("'\"") > 1 && line("'\"") <= line("$")
+    exe "normal! g`\""
+  endif
+endfunction
+au BufReadPost * call PositionCursorFromViminfo()
 
 "
 " Personnal mapping
@@ -82,6 +89,7 @@ nmap ,t :call GetLineToRunTest()<CR>
 
 " Prepare to open file in same directory of the current one
 nmap ,c :tabe <C-R>=expand('%:h').'/'<CR><C-d>
+nmap ,v :tabe <C-d>
 " Mapping pour désactiver le surlignage des résultats d'une recherche
 nnoremap <silent> <C-N> :noh<CR>
 
@@ -158,8 +166,3 @@ endfunction
 function! GetLineToRunTest()
     echo 'pyssh '.expand('%:p').' --my '. ' '.GetCurrentPythonString()
 endfunction
-
-colorscheme desertTerm
-if has("gui_running")
-    colorscheme desert
-endif
