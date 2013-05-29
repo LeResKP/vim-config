@@ -5,3 +5,4 @@ all:
 	git submodule update
 	git submodule foreach --recursive git submodule init
 	git submodule foreach --recursive git submodule update
+	sudo easy_install pyflakes flake8 pylint
