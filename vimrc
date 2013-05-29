@@ -1,3 +1,4 @@
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 call pathogen#infect()
 set t_Co=256
 let g:syntastic_enable_signs = 0

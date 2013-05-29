@@ -29,6 +29,8 @@ set smarttab
 " inoremap # X^H#
 " set autoindent
 
+set fileformats=unix,dos,mac
+
 " Command autocomplete
 set wildmode=list:longest  " When more than one match, list all matches and
 			               " complete till longest common string
