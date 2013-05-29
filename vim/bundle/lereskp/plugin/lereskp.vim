@@ -92,6 +92,7 @@ nmap ,t :call GetLineToRunTest()<CR>
 " Prepare to open file in same directory of the current one
 nmap ,c :tabe <C-R>=expand('%:h').'/'<CR><C-d>
 nmap ,v :tabe <C-d>
+nmap ,p :set paste!<CR>
 " Mapping pour désactiver le surlignage des résultats d'une recherche
 nnoremap <silent> <C-N> :noh<CR>
 
