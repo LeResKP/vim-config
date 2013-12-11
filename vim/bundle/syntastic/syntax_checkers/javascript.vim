@@ -19,5 +19,6 @@ if exists("loaded_javascript_syntax_checker")
 endif
 let loaded_javascript_syntax_checker = 1
 
-let s:supported_checkers = ["gjslint", "jslint", "jsl", "jshint", "closurecompiler"]
+" let s:supported_checkers = ["gjslint", "jslint", "jsl", "jshint", "closurecompiler"]
+let s:supported_checkers = ["jslint", "jsl", "jshint", "closurecompiler"]
 call SyntasticLoadChecker(s:supported_checkers, 'javascript')
