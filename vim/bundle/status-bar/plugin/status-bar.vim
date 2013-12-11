@@ -22,4 +22,4 @@ function! ToggleStatusLine()
 endfunction
 
 call ToggleStatusLine() "Init
-map <silent><C-space> :call ToggleStatusLine()<CR>
+" map <silent><C-space> :call ToggleStatusLine()<CR>
