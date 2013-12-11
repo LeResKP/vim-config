@@ -4,6 +4,13 @@ map  <Tab> I<tab>
 imap <expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 
+function! SetAutoComplete()
+    exec 'ino <silent> <c-s> <c-r>=snipMate#ShowAvailableSnips()<cr>'
+endfunction
+
+
+
+
 function! IsSnippet()
 	let word = matchstr(getline('.'), '\S\+\%'.col('.').'c')
 	let lis = snipMate#GetSnippetsForWordBelowCursor(word, '',  1)
@@ -40,7 +47,7 @@ function! IntelligentTab()
     endif
 endfunction
 
-au BufAdd,BufEnter * :runtime! config/default.vim <CR>
-" Load special config file for css files
-au BufAdd,BufEnter *.\(css\|scss\) :runtime! config/css.vim <CR>
+" au BufAdd,BufEnter * :runtime! config/default.vim <CR>
+" " Load special config file for css files
+" au BufAdd,BufEnter *.\(css\|scss\) :runtime! config/css.vim <CR>
 
