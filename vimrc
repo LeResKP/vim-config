@@ -1,8 +1,8 @@
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 call pathogen#infect()
 set t_Co=256
-let g:syntastic_enable_signs = 0
-let g:syntastic_enable_balloons = 0
+" let g:syntastic_enable_signs = 0
+" let g:syntastic_enable_balloons = 0
 " let g:syntastic_enable_highlighting = 0
 
 if &term =~ '^screen'
@@ -13,4 +13,12 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
+set grepprg=ack
+command! -nargs=+ Ack execute 'silent grep! <args>' | vert copen 50
 
+command! -nargs=* Test execute '!ack <args>' | vert copen 
+
+
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
