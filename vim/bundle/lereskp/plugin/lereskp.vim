@@ -6,9 +6,9 @@ set bs=eol,indent,start
 set directory=~/.vim/bundle/lereskp/backup_files/ " put swap file in this directory
 set bdir=~/.vim/bundle/lereskp/backup_files/
 set bk "make a backup of the file !!!
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set bg=dark
 
@@ -93,12 +93,13 @@ nmap ,t :call GetLineToRunTest()<CR>
 nmap ,c :tabe <C-R>=expand('%:h').'/'<CR><C-d>
 nmap ,v :tabe <C-d>
 nmap ,p :set paste!<CR>
+nmap ,w :CtrlP<CR>
 " Mapping pour désactiver le surlignage des résultats d'une recherche
 nnoremap <silent> <C-N> :noh<CR>
 
 "
 "tab is 2 spaces in html pages
-au BufEnter *.\(html\|pt\|zpt\|cpt\|mak\|mako\|css\|tmpl\|scss\) setl softtabstop=2 shiftwidth=2
+au BufEnter *.\(html\|pt\|zpt\|cpt\|mak\|mako\|css\|tmpl\|scss\|less\) setl softtabstop=2 shiftwidth=2
 
 
 function! MoveTab(val)
@@ -169,3 +170,9 @@ endfunction
 function! GetLineToRunTest()
     echo 'pyssh '.expand('%:p').' --my '. ' '.GetCurrentPythonString()
 endfunction
+
+function! RemoveTrailingWhiteSpace()
+    exe ':%s/\s\+$'
+endfunction
+
+cabbrev trailing call RemoveTrailingWhiteSpace()
