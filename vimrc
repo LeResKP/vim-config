@@ -1,4 +1,3 @@
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 call pathogen#infect()
 set t_Co=256
 " let g:syntastic_enable_signs = 0
@@ -12,6 +11,9 @@ if &term =~ '^screen'
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
 endif
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
 
 set grepprg=ack
 command! -nargs=+ Ack execute 'silent grep! <args>' | vert copen 50
