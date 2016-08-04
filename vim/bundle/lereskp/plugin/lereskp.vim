@@ -93,7 +93,7 @@ nmap ,t :call GetLineToRunTest()<CR>
 nmap ,c :tabe <C-R>=expand('%:h').'/'<CR><C-d>
 nmap ,v :tabe <C-d>
 nmap ,p :set paste!<CR>
-nmap ,w :CtrlP<CR>
+nmap ,w :CtrlPMRU<CR>
 " Mapping pour désactiver le surlignage des résultats d'une recherche
 nnoremap <silent> <C-N> :noh<CR>
 
