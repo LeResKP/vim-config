@@ -14,6 +14,7 @@ endif
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
+let g:airline#extensions#tagbar#flags = 'f'
 
 set grepprg=ack
 command! -nargs=+ Ack execute 'silent grep! <args>' | vert copen 50
