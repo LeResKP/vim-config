@@ -8,4 +8,4 @@ all:
 
 install:
 	sudo easy_install pyflakes flake8 pylint
-	sudo /usr/local/bin/npm install -g jshint
+	sudo /usr/local/bin/npm install -g jshint tslint
