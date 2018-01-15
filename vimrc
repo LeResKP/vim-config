@@ -16,11 +16,13 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tagbar#flags = 'f'
 
-set grepprg=ack
-command! -nargs=+ Ack execute 'silent grep! <args>' | vert copen 50
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+" If defined it breaks the shortcut mapping
+" https://github.com/mileszs/ack.vim/issues/197
+" let g:ack_qhandler = "botright vertical copen 80"
 
-command! -nargs=* Test execute '!ack <args>' | vert copen 
-
+nnoremap qk :Ack! <C-R>=expand("<cword>") <CR><CR>
 
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
