@@ -1,15 +1,25 @@
 set tags=~/tags-a9engine.tags
 
-nmap ,n :call OpenTag()<CR>
-nmap ,b :call OpenSplitTag()<CR>
+nmap ,n :call OpenTabTag()<CR>
+nmap ,b :call OpenTag()<CR>
 
-function! OpenTag()
+function! OpenTabTag()
     " Execute tag jump open file if one open tag, otherwise display all possibilities
     exe ":tabe | tj ".expand("<cword>")
     if expand('%') == ''
         " If we cancel or don't find tag we close the empty opened tag
         exe ":tabc"
     endif
+endfunction
+
+
+function! OpenTag()
+    " Execute tag jump open file if one open tag, otherwise display all possibilities
+    exe ":e | tj ".expand("<cword>")
+    " if expand('%') == ''
+    "     " If we cancel or don't find tag we close the empty opened tag
+    "     exe ":q"
+    " endif
 endfunction
 
 
