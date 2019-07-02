@@ -19,9 +19,9 @@
 [submodule "vim/bundle/vsearch"]
 	path = vim/bundle/vsearch
 	url = https://github.com/BenBergman/vsearch.vim.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+# [submodule "vim/bundle/syntastic"]
+#   path = vim/bundle/syntastic
+#   url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
@@ -52,9 +52,9 @@
 [submodule "vim/bundle/tsuquyomi"]
 	path = vim/bundle/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi.git
-[submodule "vim/bundle/vim/bundle/syntastic"]
-	path = vim/bundle/vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+# [submodule "vim/bundle/vim/bundle/syntastic"]
+# 	path = vim/bundle/vim/bundle/syntastic
+# 	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -64,3 +64,12 @@
 [submodule "vim/bundle/ack.vim"]
 	path = vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/ale"]
+	path = vim/bundle/ale
+	url = https://github.com/w0rp/ale
+[submodule "vim/bundle/django-plus"]
+	path = vim/bundle/django-plus
+	url = https://github.com/tweekmonster/django-plus.vim.git

@@ -1,0 +1,9 @@
+node_modules
+bower_components
+opensource
+a9npm
+*.mo
+*.pyc
+staticweb
+nongymglish
+httpdocs

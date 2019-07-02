@@ -39,7 +39,7 @@ set wildmode=list:longest  " When more than one match, list all matches and
 set completeopt=menuone,longest,preview
 
 " Include just word in current and opened tabs for completion
-set cpt=.,w,b
+" set cpt=.,w,b
 
 " We need this because of smartcase. When we make a search with '*' or '#' we
 " want to active case sensitive.
