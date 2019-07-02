@@ -1,0 +1,14 @@
+snippet dbp
+	a9db.DBEscapeParam(${1:param})
+
+snippet dbs
+	a9db.DBSelect("${1:table}", "${2:conds}", "${3:rows}")
+
+snippet dbq
+	a9db.DBQuery("${1:query}")
+
+snippet dbi
+	a9db.DBInsert("${1:table}", {})
+
+snippet dbu
+	a9db.DBUpdate("${1:table}", "${2:conds}", {${3:values}})
