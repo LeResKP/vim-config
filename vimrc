@@ -9,8 +9,34 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 Plug 'BenBergman/vsearch.vim'
+Plug 'tpope/vim-commentary'
+
 Plug '~/.vim/bundle/lereskp'
 Plug '~/.vim/bundle/gymglish'
+
+Plug 'tweekmonster/django-plus.vim'
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
+" Themes
+" color too yellow
+Plug 'morhetz/gruvbox'
+Plug 'rhysd/wallaby.vim'
+" bg too light
+Plug 'jnurmine/Zenburn'
+Plug 'HenryNewcomer/vim-theme-papaya'
+Plug 'vim-scripts/xoria256.vim'
+
+" Plug 'chriskempson/base16-vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'tomasr/molokai'
+" Plug 'sonph/onehalf'
+" Plug 'ciaranm/inkpot'
+" Plug 'joshdick/onedark.vim'
 call plug#end()
 
 set backspace=indent,eol,start
@@ -93,3 +119,12 @@ endif
 """ "
 """ let g:ale_python_pylint_options = '--disable C0111'
 """ " let g:ale_python_pylint_options = '--py3k'
+" let g:ale_set_highlights=0
+
+nmap <C-S-I> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc

@@ -46,10 +46,20 @@ set completeopt=menuone,longest,preview
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 
-colorscheme desertTerm
-if has("gui_running")
-    colorscheme desert
-endif
+" colorscheme desertTerm
+" if has("gui_running")
+"     colorscheme desert
+" endif
+
+" colorscheme gruvbox
+" highlight Normal ctermfg=254
+" colorscheme zenburn
+" colorscheme wallaby
+" colorscheme xoria256
+" colorscheme papaya
+" colorscheme desertTerm
+
+colorscheme lereskp
 
 " Custom syntax
 runtime! syntax/syntax.vim
