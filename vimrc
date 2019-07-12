@@ -130,4 +130,7 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 imap <expr> <C-J> pumvisible() ? '<esc><Plug>snipMateNextOrTrigger' : '<Plug>snipMateNextOrTrigger'
