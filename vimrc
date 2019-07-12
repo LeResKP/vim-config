@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -15,7 +15,9 @@ Plug '~/.vim/bundle/lereskp'
 Plug '~/.vim/bundle/gymglish'
 
 Plug 'tweekmonster/django-plus.vim'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'raimondi/delimitmate'
+
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -128,3 +130,4 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+imap <expr> <C-J> pumvisible() ? '<esc><Plug>snipMateNextOrTrigger' : '<Plug>snipMateNextOrTrigger'
