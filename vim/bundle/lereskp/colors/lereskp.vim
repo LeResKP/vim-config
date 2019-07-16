@@ -11,7 +11,7 @@ let g:colors_name='lereskp'
 
 hi Normal	ctermfg=249 ctermbg=235
 " TODO find why italic isn't working
-hi Comment gui=italic ctermfg=239
+hi Comment gui=italic ctermfg=242
 " Preproc
 hi Include ctermfg=74
 hi Constant ctermfg=217
