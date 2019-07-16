@@ -21,10 +21,11 @@ hi Function ctermfg=142
 " def / return
 hi Statement ctermfg=167
 hi Error ctermfg=1 ctermbg=NONE
-hi ALEWarningSign ctermfg=11 ctermbg=NONE term=NONE
 hi SpellBad ctermfg=1 ctermbg=NONE cterm=underline
 
-hi ALEInfo ctermfg=1 ctermbg=NONE cterm=underline
+hi ALEWarningSign ctermfg=228 ctermbg=NONE term=NONE
+hi ALEErrorSign ctermfg=196 ctermbg=NONE term=NONE
+hi ALEInfo ctermfg=196 ctermbg=NONE cterm=underline
 hi ALEWarning ctermfg=NONE ctermbg=NONE cterm=NONE
 
 hi Type ctermfg=149
