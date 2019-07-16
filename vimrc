@@ -15,7 +15,6 @@ Plug '~/.vim/bundle/lereskp'
 Plug '~/.vim/bundle/gymglish'
 
 Plug 'tweekmonster/django-plus.vim'
-" Plug 'jiangmiao/auto-pairs'
 Plug 'raimondi/delimitmate'
 
 
