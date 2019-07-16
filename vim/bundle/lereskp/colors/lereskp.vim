@@ -28,6 +28,10 @@ hi ALEErrorSign ctermfg=196 ctermbg=NONE term=NONE
 hi ALEInfo ctermfg=196 ctermbg=NONE cterm=underline
 hi ALEWarning ctermfg=NONE ctermbg=NONE cterm=NONE
 
+hi GitGutterAdd    ctermfg=2 ctermbg=NONE cterm=NONE
+hi GitGutterChange ctermfg=3 ctermbg=NONE cterm=NONE
+hi GitGutterDelete ctermfg=1 ctermbg=NONE cterm=NONE
+
 hi Type ctermfg=149
 
 " TODO alias to Function
