@@ -115,12 +115,15 @@ endif
 """ " let g:ale_fixers = {}
 """ " let g:ale_fixers.python = ['autopep8', 'trim_whitespace']
 """ "
-""" " let g:ale_linters = {}
-""" " let g:ale_linters.python = ['flake8', 'mypy', 'pylint', 'pycodestyle', 'pyflakes']
 """ "
-""" let g:ale_python_pylint_options = '--disable C0111'
 """ " let g:ale_python_pylint_options = '--py3k'
 " let g:ale_set_highlights=0
+"
+"
+" let g:ale_linters = {}
+" let g:ale_linters.python = ['flake8', 'mypy', 'pylint', 'pycodestyle', 'pyflakes']
+let g:ale_sign_warning = '>>'
+let g:ale_python_pylint_options = '--disable C0111'
 
 nmap <C-S-I> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
