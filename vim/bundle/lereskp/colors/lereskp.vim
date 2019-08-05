@@ -44,3 +44,5 @@ hi htmlH1 ctermfg=249
 
 hi Identifier ctermfg=142 cterm=NONE
 " ctermfg=148
+
+hi Pmenu ctermbg=gray
