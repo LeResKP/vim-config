@@ -1,5 +1,6 @@
 call plug#begin()
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer' }
+Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " tagbar is needed for airline to display current class and function
@@ -150,7 +151,20 @@ autocmd BufWritePost * GitGutter
 " let g:ycm_collect_identifiers_from_tags_files = 1
 "
 "
-" UltiSnips triggering
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+" " UltiSnips triggering
+" let g:UltiSnipsExpandTrigger = '<C-j>'
+" let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+" let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+
+
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
