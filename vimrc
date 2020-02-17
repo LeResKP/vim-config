@@ -20,6 +20,10 @@ Plug '~/.vim/bundle/gymglish'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'raimondi/delimitmate'
 
+" Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
+
+
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -95,8 +99,10 @@ endif
 """ 
 """ cnoreabbrev Ack Ack!
 """ nnoremap <Leader>a :Ack!<Space>
+
 let g:ack_default_options = " -H --nopager --nocolor --nogroup --column"
-let g:ack_qhandler = "botright vertical copen 80"
+" let g:ack_qhandler = "botright vertical copen 80"
+
 """ " If defined it breaks the shortcut mapping
 """ " https://github.com/mileszs/ack.vim/issues/197
 """ let g:ack_apply_qmappings = 1
