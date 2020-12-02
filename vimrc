@@ -16,6 +16,7 @@ Plug 'tpope/vim-commentary'
 
 Plug '~/.vim/bundle/lereskp'
 Plug '~/.vim/bundle/gymglish'
+Plug '~/.vim/bundle/vim-colors-solarized'
 
 Plug 'tweekmonster/django-plus.vim'
 Plug 'raimondi/delimitmate'
@@ -40,14 +41,18 @@ Plug 'jnurmine/Zenburn'
 Plug 'HenryNewcomer/vim-theme-papaya'
 Plug 'vim-scripts/xoria256.vim'
 
+Plug 'janko/vim-test'
+
+" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
+
 
 " Plug 'zxqfl/tabnine-vim'
 
 " Plug 'chriskempson/base16-vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'tomasr/molokai'
-" Plug 'sonph/onehalf'
+Plug 'tomasr/molokai'
+Plug 'sonph/onehalf'
 " Plug 'ciaranm/inkpot'
 " Plug 'joshdick/onedark.vim'
 call plug#end()
@@ -105,10 +110,8 @@ endif
 """ 
 """ cnoreabbrev Ack Ack!
 """ nnoremap <Leader>a :Ack!<Space>
-
-let g:ack_default_options = " -H --nopager --nocolor --nogroup --column"
+" let g:ack_default_options = " -H --nopager --nocolor --nogroup --column"
 " let g:ack_qhandler = "botright vertical copen 80"
-
 """ " If defined it breaks the shortcut mapping
 """ " https://github.com/mileszs/ack.vim/issues/197
 """ let g:ack_apply_qmappings = 1
@@ -141,7 +144,8 @@ let g:ack_default_options = " -H --nopager --nocolor --nogroup --column"
 " let g:ale_linters = {}
 " let g:ale_linters.python = ['flake8', 'mypy', 'pylint', 'pycodestyle', 'pyflakes']
 let g:ale_sign_warning = '>>'
-let g:ale_python_pylint_options = '--disable C0111'
+let g:ale_python_pylint_options = '--disable C0111 --extension-pkg-whitelist=lxml'
+let g:ale_python_mypy_options = '--ignore-missing-imports'
 let g:ale_xml_xmllint_options = '-valid'
 
 nmap <C-S-I> :call <SID>SynStack()<CR>
@@ -152,9 +156,16 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_semantic_triggers = {'python': ['re!from\s+\S+\s+import\s']}
-let g:ycm_global_ycm_extra_conf = '~/dev/github/dotfiles/dotycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 0
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_semantic_triggers = {'python': ['re!from\s+\S+\s+import\s']}
+let g:ycm_global_ycm_extra_conf = '~/conf/dotfiles/dotycm_extra_conf.py'
+let g:ycm_disable_signature_help = 1
+
+" Trigger manually the function definition
+let g:ycm_auto_hover = ''
+nmap <leader>D <plug>(YCMHover)
+
 
 
 
@@ -164,20 +175,40 @@ autocmd BufWritePost * GitGutter
 " let g:ycm_collect_identifiers_from_tags_files = 1
 "
 "
-" UltiSnips triggering
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+" UtilSnips compatibility with ycm
+let g:UltiSnipsExpandTrigger="<C-j>"
 
 
+let test#python#runner = 'nose' 
+let test#python#nose#executable = 'a9t'
+let test#strategy = "vimterminal"
+
+let test#vim#term_position = "belowright"
+" let test#strategy = "vtr"
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+" nmap <silent> t<C-s> :TestSuite<CR>
+" nmap <silent> t<C-l> :TestLast<CR>
+" nmap <silent> t<C-g> :TestVisit<CR>
 
 
-" " make YCM compatible with UltiSnips (using supertab)
-" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=env --exclude=dist --exclude=.eggs'
 
-" " better key bindings for UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+function GenerateTags()
+  echohl WarningMsg
+  echom 'Generating tags'
+  call system(g:fzf_tags_command)
+  echohl None
+endfunc
+
+let g:ycm_goto_buffer_command = 'new-tab'
+nnoremap gd :YcmCompleter GoToDeclaration<CR>
+nnoremap dD :tab split \| YcmCompleter GoToDefinition<CR>
+nnoremap gr :YcmCompleter GoToReferences<CR>
+
+
+set completeopt-=preview
+
+" let g:gitgutter_override_sign_column_highlight = 0
+" highlight clear SignColumn
