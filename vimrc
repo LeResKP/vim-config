@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer' }
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --js-completer --ts-completer'}
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -40,6 +40,8 @@ Plug 'jnurmine/Zenburn'
 Plug 'HenryNewcomer/vim-theme-papaya'
 Plug 'vim-scripts/xoria256.vim'
 
+Plug 'Yggdroot/indentLine'
+
 " Plug 'zxqfl/tabnine-vim'
 
 " Plug 'chriskempson/base16-vim'
@@ -61,11 +63,15 @@ let g:airline#extensions#tagbar#flags = 'f'
 """ let $FZF_DEFAULT_COMMAND = 'ag -a -l -g ""'
 let $FZF_DEFAULT_COMMAND = 'ag -f -U -l -g ""'
 let $FZF_DEFAULT_OPTS = '--no-mouse'
+" By default it opens like a popup centered but sometimes the layout didn't
+" refreshed properly and also ctrl+w isn't working inside
+let g:fzf_layout = { 'down': '~40%' }
 if executable('fzf')
   nnoremap <silent> qp :FZF -m<cr>
   nnoremap <silent> qb :Buffers<cr>
   nnoremap <silent> qh :History<cr>
   nnoremap <silent> qt :Tags<cr>
+  nnoremap <silent> qs :Ag <C-R>=expand('<cword>')<CR><CR>
 
   " Use fuzzy completion relative filepaths across directory
   imap <expr> <c-x><c-f> fzf#vim#complete#path('git ls-files $(git rev-parse --show-toplevel)')
